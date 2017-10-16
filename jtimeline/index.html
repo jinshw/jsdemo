@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jtimeline 时间轴</title>
+    <link rel="stylesheet" type="text/css" href="./css/jtimeline-default.css">
+    <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="./js/jtimeline.js"></script>
+    <script type="text/javascript">
+    var clickCount = 0
+    $(function() {
+        // 上一个时间点
+        $('.sPrev').click(function() {
+            var _left = $(".tempWrap>ul").css("left").slice(0, -2)
+            $(".tempWrap>ul").css("left", (Number(_left) + 140) + "px")
+        })
+        // 下一个时间点
+        $('.sNext').click(function() {
+            var _left = $(".tempWrap>ul").css("left").slice(0, -2)
+            $(".tempWrap>ul").css("left", (Number(_left) - 140) + "px")
+        })
+
+        // 时间点击事件
+        $(".tempWrap>ul>li").click(function() {
+            console.log($(this).text())
+            $(".tempWrap>ul>li").removeClass("act")
+            $(this).addClass("act")
+            console.log($(this).prop("outerHTML"))
+        })
+
+    });
+    </script>
+</head>
+
+<body>
+    <h1 style="text-align: center;">jtimeline 时间轴</h1>
+    <div id="tiimeLine">
+        <div class="event_box">
+            <div class="parHd clearfix">
+                <div class="tempWrap" style="overflow:hidden; position:relative; width:840px">
+                    <ul style="width: 2100px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left:0px;transition:left 0.4s;">
+                        <li class="act" style="float: left; width: 80px;"><span></span>2016.03.05</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2016.05.06</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2016.06.26</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2016.09.04</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2016.11.05</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2016.12.18</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2017.01.13</li>
+                        <li class="" style="float: left; width: 80px;"><span></span>2017.02.18</li>
+                    </ul>
+                </div>
+                <a class="sPrev"><img src="images/left_ico.png" alt="" title=""></a>
+                <a class="sNext"><img src="images/right_ico.png" alt="" title=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
